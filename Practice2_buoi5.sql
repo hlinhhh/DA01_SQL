@@ -7,7 +7,7 @@ select
 count(city) - count(distinct city)
 from station
 
---baitap3: menh de replace(truong_thong_tin,'ky_tu_can_thay_the','ky_tu_thay_the')
+--baitap3: menh de replace(truong_thong_tin,'ky_tu_can_thay_the','ky_tu_thay_the') kaka cai nay em tra mang duoc a
 select
 ceiling(avg(salary)-avg(replace(salary,'0','')))
 from employees
