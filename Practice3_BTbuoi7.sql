@@ -5,11 +5,11 @@ order by right(name,3) ASC, ID ASC
 
 --baitap2
 select user_id,
-concat(upper(left(name,1)),lower(replace(name,left(name,1),''))) as name => Anh/chị cho em hỏi cú pháp này sai ở đâu vậy ạ? Khi em run thử thì accepted nhưng submit thì wrong ạ
+concat(upper(left(name,1)),lower(substring(name from 2))) as name => bỏ phần "for" được, khi đó sql hiểu là chỉ lấy các ký tự từ 2 trở đi, ko quan tâm độ dài 
 from Users
 order by user_id
-/concat(upper(left(name,1)),lower(substring(name from 2))) as name => Anh/chị cho em hỏi được bỏ qua phần 'for' độ dài ký tự ạ?
-
+/concat(upper(left(name,1)),lower(replace(name,left(name,1),''))) as name => Diễn giải từng cú pháp ra sẽ biết sao ở đâu!!!
+  
 --baitap3
 select manufacturer,
 concat('$', round(sum(total_sales)/1000000,0),' million') as sale
@@ -40,7 +40,13 @@ tweet_id
 from Tweets
 where length(content) >15
 
---baitap7
+--baitap7 (luu y)
+  SELECT 
+activity_date AS day,
+COUNT(DISTINCT user_id) AS active_users
+FROM Activity
+WHERE activity_date BETWEEN '2019-06-28' AND '2019-07-27'
+ GROUP BY activity_date;
 
 --baitap8
 select count(id) as the_number_of_employees_hired
@@ -53,4 +59,9 @@ position ('a' in 'Amitah')
 from worker
 where first_name = 'Amitah'
 
---baitap10
+--baitap10 (luu y)
+select 
+title,
+SUBSTRING(title FROM POSITION(' 'IN title)+1 FOR 4)
+from winemag_p2
+WHERE country = 'Macedonia';
