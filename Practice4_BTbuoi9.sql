@@ -28,7 +28,7 @@ from callers
 
 --baitap4 
 select name from customer
-where referee_id <> 2 or coalesce (referee_id, '') <>2 
+where coalesce (referee_id, '') <>2 
 
 --baitap5
 select 
