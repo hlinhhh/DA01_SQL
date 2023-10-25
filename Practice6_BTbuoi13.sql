@@ -49,7 +49,7 @@ having count(distinct product_key) = (select count(product_key) from product)
 --baitap9
 select employee_id from Employees as a
 where manager_id not in (select employee_id from employees) 
-and salary <30000
+and salary < 30000
 order by employee_id 
 
 --baitap10
